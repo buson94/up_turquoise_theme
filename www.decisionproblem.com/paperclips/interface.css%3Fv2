@@ -1,3 +1,7 @@
+:root {
+    --defaultSpacing: 5px;
+}
+
 #mobile
 {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 'Open Sans', sans-serif;
@@ -127,10 +131,7 @@
 }
 
 
-#qCompDisplay {
-    margin-left: 3px;
-    
-}
+#qCompDisplay {width: 100%;text-align: center;}
 
 #swarmSliderDiv {
     position: relative;
@@ -161,23 +162,15 @@
 
 .slider {
     width: 100%;
-    
-}
-
-h2 {
-    line-height: 70%;
 }
 
 .shop {
     position: absolute;
-    top: 8;
-    right: 8;
+    top: 0;
+    right: 0;
     background-color: yellow;
     z-index: 1;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 3px var(--defaultSpacing);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     text-align: right;
@@ -186,6 +179,7 @@ h2 {
 .toolTip {
     position: relative;
     display: inline-block;
+    width: 100%;
 }
 
 .toolTip .toolTipText {
@@ -194,7 +188,7 @@ h2 {
     background-color: #c8c8c8;
     color: #000;
     text-align: center;
-    padding: 5px 0;
+    padding: var(--defaultSpacing) 0;
     border-radius: 3px;
     
     position: absolute;
@@ -217,7 +211,7 @@ h2 {
     position: relative;
     display: inline-block;
     height: 20px;
-    margin-top: 5px;
+    margin-top: var(--defaultSpacing);
 
 }
 
@@ -227,7 +221,7 @@ h2 {
     background-color: #c8c8c8;
     color: #000;
     text-align: center;
-    padding: 5px 0;
+    padding: var(--defaultSpacing) 0;
     border-radius: 3px;
     
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -251,7 +245,7 @@ h2 {
 .toolTip3 {
     position: relative;
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: var(--defaultSpacing);
 }
 
 .toolTip3 .toolTipText3 {
@@ -260,7 +254,7 @@ h2 {
     background-color: #c8c8c8;
     color: #000;
     text-align: center;
-    padding: 5px 0;
+    padding: var(--defaultSpacing) 0;
     border-radius: 3px;
     
     position: absolute;
@@ -295,7 +289,7 @@ h2 {
 }
 
 #tournamentLabel {
-    margin-bottom: 5px;
+    margin-bottom: var(--defaultSpacing);
 }
 
 #wireBuyerDiv {
@@ -375,19 +369,22 @@ h2 {
 
 #battleInterfaceDiv {
   position: absolute;
-  left: 15px;
-  top: 8px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 140px;
+  margin: auto;
+  color: #0ff;
 }
 
 canvas {
   display: block;
-  margin-top: 0;
-  margin-bottom: 10;    
   width: 310px;
   height: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #808080;
+  margin: 0 auto;
+  background-color: rgb(0 0 136);
 }
 
 #hypnoDroneEventDiv {
@@ -399,7 +396,11 @@ canvas {
 }
 
 #prestigeDiv {
-  background-color: lightgrey;
+    background: rgb(255,255,0);
+    background: -moz-linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(226,124,15,1) 15%, rgba(0,0,136,1) 40%);
+    background: -webkit-linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(226,124,15,1) 15%, rgba(0,0,136,1) 40%);
+    background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(226,124,15,1) 15%, rgba(0,0,136,1) 40%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff00",endColorstr="#000078",GradientType=1);
 }
 
 #consoleDiv {
@@ -412,33 +413,33 @@ canvas {
   float: left;
   width: 100%;
 }
-#leftColumn {
-  float: left ;
-  width: 275px;
+#leftColumn, #middleColumn, #rightColumn {
+  flex: 1;
 }
-#middleColumn {
-  float: left;
-  width: 275px;
-  margin-left: 10px;
-}
-#rightColumn {
-  float: left;
-  width: 320px;
-  margin-left: 10px;    
+
+#investStrat {
+    grid-area: 1 / 3 / 2 / 4;
 }
 
 #investmentDiv1 {
-  float: left;
-  width: 64px; 
-  line-height: 20%;    
+    display: flex;
+    flex-direction: column;
+    gap: var(--defaultSpacing);
+    button {
+        width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 }
 
 #investmentDiv2 {
-  float: left;
-  width: 65%; 
-  text-align: top;
-  margin-top: 0; 
-  margin-left: 5px;    
+  text-align: right;
+  grid-area: 2 / 2 / 3 / 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #stratDiv1 {
@@ -452,7 +453,7 @@ canvas {
   width: 60%; 
   text-align: top;
   margin-top: 0; 
-  margin-left: 5px;   
+  margin-left: var(--defaultSpacing);   
 }
 
 #vertPad {
@@ -485,12 +486,12 @@ canvas {
 }
 
 #investmentEngineUpgrade {
-    margin: 5px;
+    margin: var(--defaultSpacing);
     margin-bottom: 10px;
 }
 
 #tournamentManagement {
-    margin: 5px;
+    margin: var(--defaultSpacing);
     margin-bottom: 10px;
 }
 
@@ -502,9 +503,13 @@ canvas {
 
 
 .engine {
-    margin: 5;
+    display: grid;
+    height: min-content;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    gap: var(--defaultSpacing);
+    padding: var(--defaultSpacing);
     border: 1px solid grey;
-    padding: 5; 
 }
 
 .engine2 {
@@ -522,27 +527,47 @@ canvas {
 .qEngine {
     margin-bottom: 10;
     border: 1px solid grey;
-    padding: 5; 
-    height: 70px;
-    
+    padding: var(--defaultSpacing);
+    height: min-content;
+    background-color: #000;
+    color: #0ff;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: min-content min-content;
+    gap: var(--defaultSpacing);
+}
+
+#qChips {
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+ 
+    --qChipColorSaturation: 100%;
+    --qChipColorLightness: 50%;
+
+    #qChip0 {background-color: hsl(calc(0 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip1 {background-color: hsl(calc(.1 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip2 {background-color: hsl(calc(.2 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip3 {background-color: hsl(calc(.3 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip4 {background-color: hsl(calc(.4 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip5 {background-color: hsl(calc(.5 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip6 {background-color: hsl(calc(.6 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip7 {background-color: hsl(calc(.7 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip8 {background-color: hsl(calc(.8 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
+    #qChip9 {background-color: hsl(calc(.9 * 360), var(--qChipColorSaturation), var(--qChipColorLightness));}
 }
 
 .qChip {
     width: 22px;
     height: 22px;
-    margin-left: 2;
-    margin-right: 2;
-    margin-top: 2;
-    margin-bottom: 7;
-    background-color: black;
-    float: left;
-    
+}
+
+#btnQcompute {
+    width: 100%;
+    height: 100%;
 }
 
 .engineText {
-    margin-bottom: 0;
-    margin-top: 0;
-    line-height: 150%;
+    grid-area: 1 / 1 / 2 / 3;
 }
 
 .engineText1 {
@@ -628,16 +653,15 @@ hr.short {
 
 table.table1 {
     table-layout: fixed;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    grid-area: 3 / 1 / 4 / 4;
     font-size: 11;
     margin-bottom: 0;
-    margin-top: 0;
     width: 100%;
     border: none;
 }
 
 table.table1 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #099;
 }
 
 table.table2 {
@@ -694,17 +718,15 @@ p.clean {
 }
 
 p.clean2 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 11;
     margin-bottom: 0;
     margin-top: 0px;
-    
 }
 
 p.clean3 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 11;
-    margin-bottom: 5px;
+    margin-bottom: var(--defaultSpacing);
     margin-top: 2px;
     
 }
@@ -736,10 +758,24 @@ p.hypnoDrone {
 }
 
 .pulsate {
+    animation: pulsate .5s ease-out;
+    animation-iteration-count: infinite;
     -webkit-animation: pulsate .5s ease-out;
     -webkit-animation-iteration-count: infinite; 
     opacity: 0.0;
+}
+
+@keyframes pulsate {
+    0% { 
+        opacity: 0.0;
     }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.0;
+    }
+}
 
 @-webkit-keyframes pulsate {
     0% { 
@@ -753,158 +789,88 @@ p.hypnoDrone {
     }
 }
 
-
 .projectButton {
     border-radius: 0px;
     display: block;
-    height: 60px;
-    width: 275px;
-    background: #c8c8c8;
-    border: 1px solid rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 4rem;
+    background: #00c8c8;
+    border: 1px solid rgba(0, 200, 200, 1);
     outline: none;
     margin-bottom: 6px;
 }
 
 .projectButton:hover {
-    display: block;
-    height: 60px;
-    width: 275px;
-    background: #c8c8c8;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 255, 255, 1);
 }
 
 .projectButton:active {
-    display: block;
-    height: 60px;
-    width: 275px;
-    background: #d1d1d1;
+    background: #0ff;
     border: 1px solid rgba(0, 0, 0, 1);
-    
 }
 
 .projectButton:disabled {
     border: none;
+    color: #077;
 }
 
-.button {
-   border: 1px solid #1a1a1a;
-   background: #666666;
-  
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-   background: -webkit-linear-gradient(top, #ffffff, #888888);
-   background: -moz-linear-gradient(top, #ffffff, #888888);
-   background: -ms-linear-gradient(top, #ffffff, #888888);
-   background: -o-linear-gradient(top, #ffffff, #888888);
-   background-image: -ms-linear-gradient(top, #ffffff 0%, #888888 100%);
-    
-   padding: 12.5px 25px;
-   -webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   border-radius: 3px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   text-shadow: #cccccc 0 1px 0;
-   color: #000000;
-   font-size: 16px;
-   font-family: helvetica, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   outline: none;
-   }
-
-.button:hover {
-   border: 1px solid #898989;
-   text-shadow: #d4d4d4 0 1px 0;
-   background: #666666;
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#666666));
-   background: -webkit-linear-gradient(top, #ffffff, #666666);
-   background: -moz-linear-gradient(top, #ffffff, #666666);
-   background: -ms-linear-gradient(top, #ffffff, #666666);
-   background: -o-linear-gradient(top, #ffffff, #666666);
-   background-image: -ms-linear-gradient(top, #ffffff 0%, #666666 100%);
-   color: #000000;
-   }
-
-.button:active {
-   text-shadow: #bfbfbf 0 1px 0;
-   border: 1px solid #2e2e2e;
-
-   background: #d9d9d9;
-   background: -webkit-gradient(linear, left top, left bottom, from(#595959), to(#616161));
-   background: -webkit-linear-gradient(top, #595959, #d9d9d9);
-   background: -moz-linear-gradient(top, #595959, #d9d9d9);
-   background: -ms-linear-gradient(top, #595959, #d9d9d9);
-   background: -o-linear-gradient(top, #595959, #d9d9d9);
-   background-image: -ms-linear-gradient(top, #595959 0%, #d9d9d9 100%);
-
-   color: #000000;
-   }
-
-.button:disabled{
-   opacity: 0.6;
-   border: 1px solid #ffffff;
+html {
+    font-family: "Arial";
 }
 
-.button2 {
-   border: 1px solid #1a1a1a;
-   background: #666666;
-    
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
-   background: -webkit-linear-gradient(top, #ffffff, #888888);
-   background: -moz-linear-gradient(top, #ffffff, #888888);
-   background: -ms-linear-gradient(top, #ffffff, #888888);
-   background: -o-linear-gradient(top, #ffffff, #888888);
-   background-image: -ms-linear-gradient(top, #ffffff 0%, #888888 100%);
-    
-   padding: 2px 4px;
-   -webkit-border-radius: 2px;
-   -moz-border-radius: 2px;
-   border-radius: 2px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-   text-shadow: #cccccc 0 1px 0;
-   color: #000000;
-   font-size: 11px;
-   font-family: helvetica, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   outline: none;
-   }
-
-.button2:hover {
-   border: 1px solid #898989;
-   text-shadow: #d4d4d4 0 1px 0;
-   background: #616161;
-    
-   background: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#888888));
-   background: -webkit-linear-gradient(top, #f7f7f7, #888888);
-   background: -moz-linear-gradient(top, #f7f7f7, #888888);
-   background: -ms-linear-gradient(top, #f7f7f7, #888888);
-   background: -o-linear-gradient(top, #f7f7f7, #888888);
-   background-image: -ms-linear-gradient(top, #f7f7f7 0%, #888888 100%);
-    
-   color: #000000;
-   }
-
-.button2:active {
-   text-shadow: #bfbfbf 0 1px 0;
-   border: 1px solid #2e2e2e;
-    
-   background: #d9d9d9;
-   background: -webkit-gradient(linear, left top, left bottom, from(#595959), to(#616161));
-   background: -webkit-linear-gradient(top, #595959, #d9d9d9);
-   background: -moz-linear-gradient(top, #595959, #d9d9d9);
-   background: -ms-linear-gradient(top, #595959, #d9d9d9);
-   background: -o-linear-gradient(top, #595959, #d9d9d9);
-   background-image: -ms-linear-gradient(top, #595959 0%, #d9d9d9 100%);
-   
-   color: #444444;
-   }
-
-.button2:disabled {
-   opacity: 0.6;
-   border: 1px solid #ffffff;
+body {
+    background-color: #088;
 }
 
+body, p, h3 {
+    margin: 0;
+}
+
+button {
+    height: 1.2rem;
+    font-size: 11px;
+    background-color: #0dd;
+
+    &:hover {
+        background-color: #0ee;
+        cursor: pointer;
+    }
+}
+
+select {
+    background-color: #0ff;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+#game {
+    width: 70%;
+    min-width: 950px;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    gap: var(--defaultSpacing);
+    flex-direction: column;
+}
+
+#gameColumns {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: var(--defaultSpacing);
+}
+
+#battleResult {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}

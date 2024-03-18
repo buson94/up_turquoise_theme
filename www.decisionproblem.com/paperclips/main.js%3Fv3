@@ -2232,30 +2232,32 @@ function revealResults(){
 
 
 function calcPayoff(hm, vm){
+    let pickColor = "rgba(0, 255, 255, 30%)";
+    
     if (hm==1 && vm==1){
         
-        payoffCellAAElement.style.backgroundColor = "LightGrey";
+        payoffCellAAElement.style.backgroundColor = pickColor;
         
         strats[h].currentScore = strats[h].currentScore + payoffGrid.valueAA;
         strats[v].currentScore = strats[v].currentScore + payoffGrid.valueAA;  
           
     } else if (hm==1 && vm==2){
         
-        payoffCellABElement.style.backgroundColor = "LightGrey";
+        payoffCellABElement.style.backgroundColor = pickColor;
         
         strats[h].currentScore = strats[h].currentScore + payoffGrid.valueAB;
         strats[v].currentScore = strats[v].currentScore + payoffGrid.valueBA; 
         
     } else if (hm==2 && vm==1){
         
-        payoffCellBAElement.style.backgroundColor = "LightGrey";
+        payoffCellBAElement.style.backgroundColor = pickColor;
         
         strats[h].currentScore = strats[h].currentScore + payoffGrid.valueBA;
         strats[v].currentScore = strats[v].currentScore + payoffGrid.valueAB;
         
     } else if (hm==2 && vm==2){
         
-        payoffCellBBElement.style.backgroundColor = "LightGrey";
+        payoffCellBBElement.style.backgroundColor = pickColor;
         
         strats[h].currentScore = strats[h].currentScore + payoffGrid.valueBB;
         strats[v].currentScore = strats[v].currentScore + payoffGrid.valueBB;
@@ -2290,10 +2292,10 @@ function round(roundNum){
     
     function clearGrid() {
         
-        payoffCellAAElement.style.backgroundColor = "white";
-        payoffCellABElement.style.backgroundColor = "white";
-        payoffCellBAElement.style.backgroundColor = "white";
-        payoffCellBBElement.style.backgroundColor = "white";
+        payoffCellAAElement.style.backgroundColor = "transparent";
+        payoffCellABElement.style.backgroundColor = "transparent";
+        payoffCellBAElement.style.backgroundColor = "transparent";
+        payoffCellBBElement.style.backgroundColor = "transparent";
         
         
         setTimeout(function(){roundLoop();}, 50);

@@ -11,9 +11,9 @@ var battleRIGHTSHIPS=200;
 
 var battleMAXSPEED = 2;
 var battleDEATH_THRESHOLD = 0.5; //used to calculate battles
-var battleLEFTCOLOR = "#ffffff"
-var battleRIGHTCOLOR = "#000000"
-var battleEXPLODECOLOR = "#ffffff"
+var battleLEFTCOLOR = "#00ffff"
+var battleRIGHTCOLOR = "#ff0000"
+var battleEXPLODECOLOR = "#ffff00"
 
 var ships = new Array(); 
 var numShips = 0;
